@@ -41,7 +41,7 @@ namespace TinToy
                     _product.ID = Int32.Parse(dr["ID"].ToString());
                     _product.Name = dr["Name"].ToString();
                     _product.Description = dr["Description"].ToString();
-                    if (dr["Image"] != null)
+                    if (dr["Image"] != DBNull.Value)
                     {
                         _product.Image = (byte[])dr["Image"];
                     }

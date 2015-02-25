@@ -63,6 +63,12 @@
       <DependentUpon>rptCustomer.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="rptProduct.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptProduct.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="TinToy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmTinToy.resx">
@@ -80,6 +86,10 @@
     <EmbeddedResource Include="rptCustomer.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptCustomer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptProduct.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptProduct.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">

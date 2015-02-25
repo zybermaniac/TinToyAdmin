@@ -63,7 +63,14 @@ namespace TinToy
             sqlParameters[5] = new SqlParameter("@id", SqlDbType.Int);
             sqlParameters[0].Value = _product.Name;
             sqlParameters[1].Value = _product.Description;
-            sqlParameters[2].Value = _product.Image;
+            if (_product.Image == null)
+            {
+                sqlParameters[2].Value = DBNull.Value;
+            }
+            else
+            {
+                sqlParameters[2].Value = _product.Image;
+            }
             sqlParameters[3].Value = _product.Price;
             sqlParameters[4].Value = _product.Availability;
             sqlParameters[5].Value = _product.ID;
