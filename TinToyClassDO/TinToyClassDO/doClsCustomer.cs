@@ -93,5 +93,14 @@ namespace TinToy
             SqlParameter[] sqlParameters = new SqlParameter[0];
             return connect.ExecuteSelectQuery(query, sqlParameters);
         }
+        public DataTable GetCustomerByLogin(string login)
+        {
+            string query = "SELECT * FROM Customer " +
+                           "WHERE Login = @login";
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@login", SqlDbType.NVarChar);
+            sqlParameters[0].Value = login;
+            return connect.ExecuteSelectQuery(query, sqlParameters);
+        }
     }
 } 

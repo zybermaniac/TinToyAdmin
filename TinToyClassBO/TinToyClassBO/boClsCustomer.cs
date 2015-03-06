@@ -122,5 +122,28 @@ namespace TinToy
             }
             return dt;
         }
+        public Customer GetCustomerByLogin(string login, ref ErrorMessage _errorMessage)
+        {
+            Customer _customer = new Customer();
+            DataTable dt = doCustomer.GetCustomerByLogin(login);
+            if (dt.Rows.Count != 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    _customer.ID = Int32.Parse(dr["ID"].ToString());
+                    _customer.FirstName = dr["FirstName"].ToString();
+                    _customer.LastName = dr["LastName"].ToString();
+                    _customer.Login = dr["Login"].ToString();
+                    _customer.Password = dr["Password"].ToString();
+                    _customer.Email = dr["Email"].ToString();
+                    _customer.Phone = dr["Phone"].ToString();
+                }
+            }
+            else
+            {
+                _errorMessage.Message = "Username " + login + " does not exist.";
+            }
+            return _customer;
+        }
     }
 }
