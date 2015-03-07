@@ -13,7 +13,7 @@ namespace TinToyWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
+            Session["customer"] = string.Empty;
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
@@ -32,6 +32,7 @@ namespace TinToyWeb
                 }
                 else
                 {
+                    Session["customer"] = cus;
                     Response.Redirect("Welcome.aspx");
                 }
             }

@@ -10,28 +10,28 @@ using System.Data;
 
 namespace TinToyWeb
 {
-    public partial class CustomerList : System.Web.UI.Page
+    public partial class ProductList : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Customer cus = new Customer();
-            boClsCustomer boCus = new boClsCustomer();
+            Product prod = new Product();
+            boClsProduct boProd = new boClsProduct();
             ErrorMessage err = new ErrorMessage();
-            DataTable dt = boCus.SearchCustomer(cus, ref err);
+            DataTable dt = boProd.SearchProduct(prod, ref err);
             if (err.Message != null)
             {
                 Response.Write(err.Message);
             }
             else
             {
-                gdCustomerList.DataSource = dt;
-                gdCustomerList.DataBind();
+                gdProduct.DataSource = dt;
+                gdProduct.DataBind();
             }
         }
         protected void gridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            gdCustomerList.PageIndex = e.NewPageIndex;
-            gdCustomerList.DataBind();
+            gdProduct.PageIndex = e.NewPageIndex;
+            gdProduct.DataBind();
         }
         public string GetSortDirection(string SortExpression)
         {
@@ -48,13 +48,13 @@ namespace TinToyWeb
         protected void gridView_Sorting(object sender, GridViewSortEventArgs e)
         {
             string order = GetSortDirection(e.SortExpression);
-            DataTable dt = gdCustomerList.DataSource as DataTable;
+            DataTable dt = gdProduct.DataSource as DataTable;
             if (dt != null)
             {
                 DataView dv = new DataView(dt);
                 dv.Sort = e.SortExpression + " " + order;
-                gdCustomerList.DataSource = dv;
-                gdCustomerList.DataBind();
+                gdProduct.DataSource = dv;
+                gdProduct.DataBind();
             }
         } 
     }

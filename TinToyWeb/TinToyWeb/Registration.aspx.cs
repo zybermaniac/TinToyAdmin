@@ -11,11 +11,21 @@ namespace TinToyWeb
 {   
     public partial class wfRegistration : System.Web.UI.Page
     {
+        private Customer _cus;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Page.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;            
+            var x = Session["customer"];
+            if (x != null)
+            {
+                _cus = (Customer)Session["customer"];
+                txtFirstName.Text = _cus.FirstName;
+                txtLastName.Text = _cus.LastName;
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
-
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             Customer customer = new Customer();
