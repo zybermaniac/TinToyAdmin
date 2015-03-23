@@ -42,6 +42,7 @@
     <Compile Include="voCls.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="voClsAddress.cs" />
+    <Compile Include="voClsAdminCode.cs" />
     <Compile Include="voClsCustomer.cs" />
     <Compile Include="voClsOrder.cs" />
     <Compile Include="voClsOrderLine.cs" />

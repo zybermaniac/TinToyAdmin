@@ -37,18 +37,20 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="TinToyClassDO, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\TinToyClassDO\TinToyClassDO\bin\Debug\TinToyClassDO.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="boCls.cs" />
+    <Compile Include="boClsAddress.cs" />
+    <Compile Include="boClsAdminCode.cs" />
     <Compile Include="boClsCustomer.cs" />
     <Compile Include="boClsProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\TinToyClassDO\TinToyClassDO\TinToyClassDO.csproj">
-      <Project>{a6e1d9a6-1708-455d-87fa-81a1c332b73c}</Project>
-      <Name>TinToyClassDO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\TinToyClassVO\TinToyClassVO\TinToyClassVO.csproj">
       <Project>{5dac0268-e666-4d26-b27a-7706bc8eed38}</Project>
       <Name>TinToyClassVO</Name>

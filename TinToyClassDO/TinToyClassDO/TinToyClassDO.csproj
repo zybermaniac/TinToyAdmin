@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="doCls.cs" />
+    <Compile Include="doClsAddress.cs" />
+    <Compile Include="doClsAdminCode.cs" />
     <Compile Include="doClsCustomer.cs" />
     <Compile Include="doClsProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -14,10 +14,10 @@ namespace TinToy
         public string LastName { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public System.DateTime CreateDate { get; set; }
-        public System.DateTime LastActiveDate { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
+        public System.DateTime CreateDate { get; set; }
+        public System.DateTime LastActiveDate { get; set; }
         public bool ActiveFlag { get; set; }
     }
 }

@@ -10,9 +10,11 @@ namespace TinToy
     public class Order
     {
         public int ID { get; set; }
-        public int CustomerID { get; set; } 
-        public System.DateTime OrderDate { get; set; }
-        public System.DateTime ShippingDate { get; set; } 
-        public string Status { get; set;} 
+        public int CustomerID { get; set; }
+        public string Status { get; set; }
+        public System.DateTime PaymentDate { get; set; }
+        public System.DateTime ShippingDate { get; set; }
+        public System.DateTime CreateDate { get; set; }
+        public System.DateTime LastActiveDate { get; set; } 
     }
 }

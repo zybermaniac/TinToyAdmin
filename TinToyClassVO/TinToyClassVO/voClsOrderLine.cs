@@ -13,6 +13,10 @@ namespace TinToy
         public int OrderID { get; set; } 
         public int ProductID { get; set; } 
         public int Quantity { get; set; } 
-        public decimal Price { get; set; } 
+        public decimal Price { get; set; }
+        public string Note { get; set; }
+        public System.DateTime CreateDate { get; set; }
+        public System.DateTime LastActiveDate { get; set; } 
+
     }
 }
