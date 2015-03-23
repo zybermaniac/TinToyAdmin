@@ -14,7 +14,7 @@ namespace TinToyWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Customer cus = new Customer();
+            TinToy.Customer cus = new TinToy.Customer();
             boClsCustomer boCus = new boClsCustomer();
             ErrorMessage err = new ErrorMessage();
             DataTable dt = boCus.SearchCustomer(cus, ref err);

@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="TinToyWeb.Site1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>  
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Tin Toy Store</title>
+	<link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />	
+</head>
+<body>
+    <div id="wrapper">
+        <div id="header"></div>
+        <div id="left">
+            <div id="logo">
+                <h1>Tin Toy Store</h1>
+                <p>Collectible Vintage</p>
+            </div>
+            <div id="nav">
+                <ul>
+                  <li class="important"><a href="Default.aspx">Home</a></li>
+                  <li><a href="ProductList.aspx">Products</a></li>
+                  <asp:ContentPlaceHolder ID="placeAccount" runat="server"></asp:ContentPlaceHolder>
+                  <li><a href="ContactUs.aspx">Contact us</a></li>
+                </ul>
+            </div>
+            <div id="news">
+                <h2>Latest Comments</h2>
+                <asp:ContentPlaceHolder ID="placeComment" runat="server"></asp:ContentPlaceHolder>
+                <h3>02/03/15</h3>
+                <p>Our man of the hour, Big T, has done it again. This time he has included CSS into our storefront.</p>
+                <div class="hr-dots"></div>
+                <h3>01/30/07</h3>
+                <p>"The more you dig into the world of web programming the more interesting things you will find". If you're looking for beautiful and professionally made templates you can always find them at Template Beauty.</p>
+                <p class="more"><a href="http://www.templatebeauty.com">more</a></p>
+            </div>
+            <div id="support">
+                <p>Call: 858-547-0885 USA</p>
+            </div>
+        </div>
+        <div id="right">
+            <asp:ContentPlaceHolder ID="placeLogin" runat="server"></asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="placeLogout" runat="server"></asp:ContentPlaceHolder>
+            <asp:ContentPlaceHolder ID="placeMain" runat="server"></asp:ContentPlaceHolder>   
+        </div>
+        <div class="clear"></div>
+        <div id="spacer"></div>
+        <div id="footer">
+            <div id="copyright">Copyright &copy; 2015 Moolmuang Co. All right reserved.</div>
+	        <div id="footerline"></div>
+        </div>	
+    </div>
+</body>
+</html>

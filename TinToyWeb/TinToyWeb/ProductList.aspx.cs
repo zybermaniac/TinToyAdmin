@@ -12,20 +12,37 @@ namespace TinToyWeb
 {
     public partial class ProductList : System.Web.UI.Page
     {
+        TinToy.Customer _cus;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Product prod = new Product();
-            boClsProduct boProd = new boClsProduct();
-            ErrorMessage err = new ErrorMessage();
-            DataTable dt = boProd.SearchProduct(prod, ref err);
-            if (err.Message != null)
+            var x = Session["customer"];
+            if (x != null && !string.IsNullOrEmpty(x.ToString()))
             {
-                Response.Write(err.Message);
+                _cus = (TinToy.Customer)Session["customer"];
+                lblLogin.Text = _cus.FirstName + " " + _cus.LastName;
+                ((ContentPlaceHolder)Page.Master.FindControl("placeLogin")).Visible = false;
+                ((ContentPlaceHolder)Page.Master.FindControl("placeLogout")).Visible = true;
+                ((ContentPlaceHolder)Page.Master.FindControl("placeAccount")).Visible = true;
             }
             else
             {
+                ((ContentPlaceHolder)Page.Master.FindControl("placeLogin")).Visible = true;
+                ((ContentPlaceHolder)Page.Master.FindControl("placeLogout")).Visible = false;
+                ((ContentPlaceHolder)Page.Master.FindControl("placeAccount")).Visible = false;
+            }
+            TinToy.Product prod = new TinToy.Product();
+            boClsProduct boProd = new boClsProduct();
+            ErrorMessage err = new ErrorMessage();
+            DataTable dt = boProd.SearchProduct(prod, ref err);
+            if (string.IsNullOrEmpty(err.Message))
+            {
                 gdProduct.DataSource = dt;
                 gdProduct.DataBind();
+            }
+            else
+            {
+                //todo:
+                Response.Write(err.Message);
             }
         }
         protected void gridView_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -56,6 +73,6 @@ namespace TinToyWeb
                 gdProduct.DataSource = dv;
                 gdProduct.DataBind();
             }
-        } 
+        }       
     }
 }

@@ -1,54 +1,31 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="TinToyWeb.wfRegistration" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-        .auto-style2 {
-            height: 25px;
-        }
-        .auto-style3 {
-            height: 25px;
-            width: 340px;
-            text-align: right;
-        }
-        .auto-style4 {
-            width: 340px;
-            text-align: right;
-        }
-        .auto-style5 {
-            height: 25px;
-            width: 140px;
-        }
-        .auto-style6 {
-            width: 140px;
-        }
-        .auto-style7 {
-            width: 340px;
-            text-align: right;
-            height: 48px;
-        }
-        .auto-style8 {
-            width: 140px;
-            height: 48px;
-        }
-        .auto-style9 {
-            height: 48px;
-        }
-    </style>
-</head>
-<body>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="TinToyWeb.Registration" %>
+<asp:Content ID="Content2" ContentPlaceHolderID="placeLogin" runat="server">
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="placeLogout" runat="server">
+    <table style="width:100%">
+        <colgroup>
+            <col />
+            <col style="width:200px;"/>
+            <col style="width:50px;"/>
+        </colgroup>
+        <tbody>
+            <tr>
+                <td>&nbsp;</td>
+                <td align="right"><asp:Label ID="lblLogin" runat="server"></asp:Label></td>
+                <td align="right"><a href="Logout.aspx">Logout</a></td>
+            </tr>
+        </tbody>
+    </table>
+</asp:Content>
+<asp:Content ID="Content1" ContentPlaceHolderID="placeMain" runat="server">
     <form id="form1" runat="server">
-    <div>
-    
+    <div>    
         <table class="auto-style1">
             <tr>
-                <td class="auto-style3">Username:</td>
+                <td colspan ="3" align="center"><asp:Label ID="lblResponse" runat="server" Text=""></asp:Label></td>
+            </tr>
+            <tr>
+                <td class="auto-style3" style="width: 131px" align="right">Username:</td>
                 <td class="auto-style5">
                     <asp:TextBox ID="txtLogin" runat="server"></asp:TextBox>
                 </td>
@@ -57,7 +34,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style4">Password:</td>
+                <td class="auto-style4" style="width: 131px" align="right">Password:</td>
                 <td class="auto-style6">
                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
@@ -66,7 +43,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style4">Confirm Password:</td>
+                <td class="auto-style4" style="width: 131px" align="right">Confirm Password:</td>
                 <td class="auto-style6">
                     <asp:TextBox ID="txtRPassword" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
@@ -76,7 +53,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style4">First Name:</td>
+                <td class="auto-style4" style="width: 131px" align="right">First Name:</td>
                 <td class="auto-style6">
                     <asp:TextBox ID="txtFirstName" runat="server"></asp:TextBox>
                 </td>
@@ -85,7 +62,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style4">Last Name:</td>
+                <td class="auto-style4" style="width: 131px" align="right">Last Name:</td>
                 <td class="auto-style6">
                     <asp:TextBox ID="txtLastName" runat="server"></asp:TextBox>
                 </td>
@@ -94,7 +71,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style4">Email:</td>
+                <td class="auto-style4" style="width: 131px" align="right">Email:</td>
                 <td class="auto-style6">
                     <asp:TextBox ID="txtEmail" runat="server"></asp:TextBox>
                 </td>
@@ -104,7 +81,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style4">Phone:</td>
+                <td class="auto-style4" style="width: 131px" align="right">Phone:</td>
                 <td class="auto-style6">
                     <asp:TextBox ID="txtPhone" runat="server" TextMode="Phone"></asp:TextBox>
                 </td>
@@ -113,15 +90,24 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style7"></td>
+                <td class="auto-style7" style="width: 131px"></td>
                 <td class="auto-style8">
                     <asp:Button ID="btnSubmit" runat="server" OnClick="btnSubmit_Click" Text="Submit" />
+                    <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" CausesValidation="False" />
                 </td>
-                <td class="auto-style9"></td>
+                <td class="auto-style9">&nbsp;</td>
             </tr>
-        </table>
-    
+        </table>    
     </div>
     </form>
-</body>
-</html>
+</asp:Content>
+<asp:Content ID="Content4" ContentPlaceHolderID="placeComment" runat="server">
+    <h3>02/18/15</h3>
+    <p>Every fields must be entered. When in edit mode: Username and password cannot be edited here. Later on we will add an option where user can change password.</p>    <div class="hr-dots"> </div>
+    <p>Technical: For speed and educational purposes we implemented RequiredFieldValidators feature. And for each field we bound it to appropriate controls along with error messages. The CausesValidation for cancel button is set to false so that it will ignore RequireFieldValidators. ContentPlaceHolder "placeLogout", and "placeLogin" will be visible according to the Customer object from the session. Submit button text will be shown either "Save" or "Update" according to the usage intention.</p>
+    <div class="hr-dots"> </div>
+</asp:Content>
+<asp:Content ID="Content5" ContentPlaceHolderID="placeAccount" runat="server">
+    <li><a href="Account.aspx">My Account</a></li>
+    <li><a href="OrderList.aspx">My Orders</a></li>
+</asp:Content>

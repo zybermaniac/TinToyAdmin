@@ -1,42 +1,20 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="TinToyWeb.Login" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-        .auto-style2 {
-            text-align: right;
-            width: 368px;
-        }
-        .auto-style3 {
-            width: 368px;
-        }
-        .auto-style4 {
-            width: 136px;
-        }
-        .auto-style5 {
-            width: 368px;
-            height: 34px;
-        }
-        .auto-style6 {
-            width: 136px;
-            height: 34px;
-        }
-        .auto-style7 {
-            height: 34px;
-        }
-    </style>
-</head>
-<body>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="TinToyWeb.Login" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="placeMain" runat="server"> 
     <form id="form1" runat="server">
         <table class="auto-style1">
             <tr>
-                <td class="auto-style2">Username:</td>
+                <td class="auto-style3" style="width: 146px">&nbsp;</td>
+                <td class="auto-style4">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style3" style="width: 146px">&nbsp;</td>
+                <td>
+                    <asp:Label ID="lblResponse" runat="server" Text="" ForeColor="Red"></asp:Label></td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style2" style="width: 146px" align="right">Username:</td>
                 <td class="auto-style4">
                     <asp:TextBox ID="txtLogin" runat="server"></asp:TextBox>
                 </td>
@@ -45,7 +23,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style2">Password:</td>
+                <td class="auto-style2" style="width: 146px" align="right">Password:</td>
                 <td class="auto-style4">
                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
                 </td>
@@ -54,19 +32,24 @@
                 </td>
             </tr>
             <tr>
-                <td class="auto-style5"></td>
+                <td class="auto-style5" style="width: 146px"></td>
                 <td class="auto-style6">
-                    <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Login" />
-                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Registration.aspx" style="text-align: justify" Target="Registration.aspx">register</asp:HyperLink>
+                    <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" Text="Login" Width="100px" />
                 </td>
-                <td class="auto-style7"></td>
+                <td>
+                    <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Registration.aspx" Target="_parent">Register</asp:HyperLink>
+                </td>
             </tr>
             <tr>
-                <td class="auto-style3">&nbsp;</td>
+                <td class="auto-style3" style="width: 146px">&nbsp;</td>
                 <td class="auto-style4">&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
         </table>
     </form>
-</body>
-</html>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="placeComment" runat="server">
+    <h3>02/21/15</h3>
+    <p>If you are new to the site please register first. If you have been here before please login.</p>
+    <div class="hr-dots"></div>
+</asp:Content>

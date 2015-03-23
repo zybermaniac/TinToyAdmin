@@ -4,12 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-//
-using TinToy;
 
 namespace TinToyWeb
 {
-    public partial class Welcome : System.Web.UI.Page
+    public partial class Account : System.Web.UI.Page
     {
         private TinToy.Customer _cus;
         protected void Page_Load(object sender, EventArgs e)
