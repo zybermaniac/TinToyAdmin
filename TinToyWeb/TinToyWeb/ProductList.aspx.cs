@@ -13,13 +13,15 @@ namespace TinToyWeb
     public partial class ProductList : System.Web.UI.Page
     {
         TinToy.Customer _cus;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
             var x = Session["customer"];
             if (x != null && !string.IsNullOrEmpty(x.ToString()))
             {
                 _cus = (TinToy.Customer)Session["customer"];
-                lblLogin.Text = _cus.FirstName + " " + _cus.LastName;
+               lblLogin.Text = _cus.FirstName + " " + _cus.LastName;
                 ((ContentPlaceHolder)Page.Master.FindControl("placeLogin")).Visible = false;
                 ((ContentPlaceHolder)Page.Master.FindControl("placeLogout")).Visible = true;
                 ((ContentPlaceHolder)Page.Master.FindControl("placeAccount")).Visible = true;
@@ -34,6 +36,7 @@ namespace TinToyWeb
             boClsProduct boProd = new boClsProduct();
             ErrorMessage err = new ErrorMessage();
             DataTable dt = boProd.SearchProduct(prod, ref err);
+            dt = boProd.SearchProduct(prod, ref err);
             if (string.IsNullOrEmpty(err.Message))
             {
                 gdProduct.DataSource = dt;
@@ -50,7 +53,7 @@ namespace TinToyWeb
             gdProduct.PageIndex = e.NewPageIndex;
             gdProduct.DataBind();
         }
-        public string GetSortDirection(string SortExpression)
+        private string GetSortDirection(string SortExpression)
         {
             if (ViewState[SortExpression] == null)
             {
@@ -68,11 +71,17 @@ namespace TinToyWeb
             DataTable dt = gdProduct.DataSource as DataTable;
             if (dt != null)
             {
-                DataView dv = new DataView(dt);
-                dv.Sort = e.SortExpression + " " + order;
-                gdProduct.DataSource = dv;
+                dt.DefaultView.Sort = e.SortExpression + " " + order;
+                gdProduct.DataSource = dt;
                 gdProduct.DataBind();
             }
+        }            
+        protected void gdProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = gdProduct.SelectedRow;
+            string id = row.Cells[1].Text;
+            Session["productID"] = id;
+            Response.Redirect("ProductDetail.aspx");
         }       
     }
 }

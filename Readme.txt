@@ -16,7 +16,7 @@ The main purpose of this project is to put various code snippets into a collecti
 - Manipulating DataSet, DataTable, and DataRow (ADO.NET)
 - Differentiate between business logic errors and data accessing errors. Catch and send them appropriate places.
 - Technique of bubbling error messages from data access layer up to business layer, and to presentation layer.
-	Visual Studio IDE
+	Visual Studio IDE WinForms
 - Breaking whole WinForms solution into several projects So it would be easier for each team member to work on different module.
 - Managing multiple panels on a WinForms menu.
 - Binding DataTable to DataGridView and display only selected columns.
@@ -25,6 +25,17 @@ The main purpose of this project is to put various code snippets into a collecti
 - Converting image to byte array using FileStream class.
 - Creating Crystal report, setting display columns, header, details, and footer.
 - Programmatically call the report and display it in WinForms application using CrystalReportViewer.
+	ASP.NET
+- Using 3-layer as the WinForms solution.
+- For the sake of simplicity, a database object is created inside the solution. And it is placed inside App_Data folder.
+- Demonstrated the use of web template. Utilizing the pre-made css.
+- Incorporated the web template into WebForms master page while having the new added pages being slaves.
+- Manipulating content place holder blocks of the ASP page dynamically.
+- Utilized RequiredFieldValidator, along with the use of ControlToValidate, and ErrorMessage.
+- Demonstrated the use of Http Page session, and response.redirect().
+- Demonstrated the use of Http Handler for retrieving images.
+- Demonstrated the use of GridView along with paging and sorting.
+
 
 Instruction:
 1. Download and install SAP Crystal Report for .NET from http://www.sap.com/solution/sme/software/analytics/crystal-visual-studio/index.html
